@@ -4,7 +4,7 @@ $sysinternals_repo = 'download.sysinternals.com'
 $sysinternals_downloadlink = 'https://download.sysinternals.com/files/Sysmon.zip'
 $sysinternals_folder = 'C:\Program Files\sysinternals'
 $sysinternals_zip = 'SysinternalsSuite.zip'
-$sysmonconfig_downloadlink = 'https://raw.githubusercontent.com/Fabio833/sysmon-modular/master/sysmonconfig.xml'
+$sysmonconfig_downloadlink = 'https://raw.githubusercontent.com/ContegoSecurity/SOC/main/sysmon_config.xml'
 $sysmonconfig_file = 'sysmonconfig-export.xml'
 #
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
