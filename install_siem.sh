@@ -47,6 +47,18 @@ elif [[ $OS == *"Fedora"* ]]; then
     sudo wget -q -O /etc/yum.repos.d/microsoft-prod.repo https://packages.microsoft.com/config/fedora/36/prod.repo
     sudo dnf install sysmonforlinux
 
+# CentOS
+elif [[ $OS == *"CentOS"* ]]; then
+    #SIEM RPM
+    curl -o wazuh-agent-4.7.0-1.x86_64.rpm https://packages.wazuh.com/4.x/yum/wazuh-agent-4.7.0-1.x86_64.rpm && sudo WAZUH_MANAGER='siem.contego.com.br' WAZUH_AGENT_GROUP='Linux' rpm -ihv wazuh-agent-4.7.0-1.x86_64.rpm
+    sudo systemctl daemon-reload
+    sudo systemctl enable wazuh-agent
+    sudo systemctl start wazuh-agent
+    #Sysmon
+    sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+    sudo wget -q -O /etc/yum.repos.d/microsoft-prod.repo https://packages.microsoft.com/config/rhel/8/prod.repo
+    sudo dnf install sysmonforlinux
+
 # RHEL 8
 elif [[ $OS == *"Red Hat"* ]]; then
     #SIEM RPM
